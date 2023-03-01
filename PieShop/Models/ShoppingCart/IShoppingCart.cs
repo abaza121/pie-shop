@@ -1,4 +1,4 @@
-﻿namespace PieShop.Models.ShoppingCart;
+﻿namespace PieShop.Models;
 
 public interface IShoppingCart
 {

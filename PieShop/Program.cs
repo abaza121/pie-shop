@@ -5,9 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IPieRepository, PieRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IShoppingCart, ShoppingCart>(ShoppingCart.GetCart);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 var conString=builder.Configuration["ConnectionStrings:PieShopDbContextConnection"];
 builder.Services.AddDbContext<PieShopDbContext>(options => options.UseSqlServer(conString));
 
